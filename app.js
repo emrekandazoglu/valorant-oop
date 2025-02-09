@@ -74,3 +74,73 @@ console.log(sova1.name); // Çıktı: Char name is Emre
 sova1.useSkillOne(); // Çıktı: Sova is using uçma skill
 sova1.buyarmor();
 sova1.damage(100);
+
+
+let colors=["blue","red","black","white"];
+console.log(colors);
+[colors[0],colors[1]]=[colors[1],colors[0]]
+console.log(colors);
+
+const [firstcolor,secondcolor,...extracolors]=colors;
+
+console.log(firstcolor);
+console.log(secondcolor);
+console.log(extracolors);
+
+
+const personel={
+    name:"emre",
+    surname:"kandaz",
+    age:30
+}
+
+const {name,surname,age=32}=personel;
+
+console.log(name);
+console.log(surname);
+console.log(age);
+
+
+const fruits=[{name:"apple",calories:230},{name:"pineapple",calories:150},{name:"banana",calories:350}];
+
+
+const max=fruits.reduce((max,fruit)=>{
+return (fruit.calories>max.calories?fruit:max);
+});
+console.log(max);
+
+const new1=fruits.filter(e=> e.calories>200);
+new1.forEach(element => {
+    console.log(element.calories);
+});
+
+
+
+function score () {
+    let score=0;
+
+    function inc(value) {
+        score+=value;
+        console.log(`+${value} pts`);
+    }
+
+    function dic (value) {
+        score-=value;
+        console.log(`-${value} pts`);
+    }
+
+    function show () {
+        console.log(`your score is ${score}`);
+    }
+
+    return{inc,dic,show};
+}
+
+let game=score();
+
+game.inc(10);
+game.inc(10);
+game.inc(10);
+game.inc(10);
+
+game.show();
